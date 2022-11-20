@@ -10,6 +10,7 @@ const setUsername = () => {
     if(username.length !== 0) {
         userRegisterDiv.style.display = 'none';
         usernameInput.style.border = 'none';
+        chatTextArea.innerHTML += `You joined the chat as "${username}"\n\n`;
         sio.emit('set_username', username);
     } else {
         usernameInput.style.border = 'solid 1px red';
@@ -17,5 +18,5 @@ const setUsername = () => {
 }
 
 sio.on('connect', (socket) => {
-    chatTextArea.innerHTML += 'Connected!\n\n';
+    chatTextArea.innerHTML += 'Connected!\n';
 })
