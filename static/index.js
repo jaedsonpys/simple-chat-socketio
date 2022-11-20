@@ -7,6 +7,8 @@ const chatBox = document.querySelector('.chat-area')
 
 const messageInput = document.querySelector('#input-message');
 
+chatBox.addEventListener('submit', (e) => e.preventDefault());
+
 const setUsername = () => {
     const username = usernameInput.value;
 
@@ -41,4 +43,8 @@ sio.on('new_message', (data) => {
     let from = data.from;
     let message = data.message;
     chatTextArea.innerHTML += `${from}: ${message}\n`;
+})
+
+sio.on('new_user', (username) => {
+    chatTextArea.innerHTML += `"${username}" joined the chat\n`;
 })
