@@ -8,10 +8,10 @@
 </head>
 <body>
     <h1>Welcome to simple chat</h1>
-    <div>
+    <div id="user-register">
         <label for="username">Your username:</label>
         <input type="text" name="username" id="username">
-        <button type="button">register</button>
+        <button type="button" onclick="setUsername()">register</button>
     </div>
     <div class="chat-area" style="margin-top: 50px;">
         <textarea id="chat" style="resize: none; padding: 10px;" cols="50" readonly rows="20"></textarea>
