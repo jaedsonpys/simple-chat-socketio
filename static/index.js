@@ -17,6 +17,5 @@ const setUsername = () => {
 }
 
 sio.on('connect', (socket) => {
-    chatTextArea.innerHTML += 'Connected!\n';
-    console.log('Connected!')
+    chatTextArea.innerHTML += 'Connected!\n\n';
 })
