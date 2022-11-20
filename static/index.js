@@ -43,8 +43,8 @@ sio.on('new_message', (data) => {
     let from = data.from;
     let message = data.message;
     chatTextArea.innerHTML += `${from}: ${message}\n`;
-})
+});
 
 sio.on('new_user', (username) => {
     chatTextArea.innerHTML += `"${username}" joined the chat\n`;
-})
+});
