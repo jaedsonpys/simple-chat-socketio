@@ -15,7 +15,7 @@ async def index(request):
 
 @sio.event
 def connect(sid, environ):
-    users[sid] = None
+    print(f'New user connected: {sid}')
 
 
 @sio.event
