@@ -14,8 +14,9 @@ def connect(sid, environ):
 
 
 @sio.event
-def set_username(sid, data):
-    users[sid] = data
+async def set_username(sid, username):
+    users[sid] = username
+    await sio.emit('new_user', data=username, skip_sid=sid)
 
 
 if __name__ == '__main__':
