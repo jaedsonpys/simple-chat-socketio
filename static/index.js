@@ -31,8 +31,14 @@ const sendMessage = () => {
     } else {
         messageInput.style.border = 'solid 1px red';
     }
-}
+};
 
 sio.on('connect', (socket) => {
     chatTextArea.innerHTML += 'Connected!\n';
 });
+
+sio.on('new_message', (data) => {
+    let from = data.from;
+    let message = data.message;
+    chatTextArea.innerHTML += `${from}: ${message}\n`;
+})
