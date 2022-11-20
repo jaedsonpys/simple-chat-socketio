@@ -28,7 +28,7 @@ async def set_username(sid, username):
 async def send_message(sid, message):
     if users.get(sid):
         from_user = users[sid]
-        sio.emit('new_message', data={'from': from_user, 'message': message}, skip_sid=sid)
+        await sio.emit('new_message', data={'from': from_user, 'message': message}, skip_sid=sid)
 
 
 app.router.add_static('/static', 'static')
